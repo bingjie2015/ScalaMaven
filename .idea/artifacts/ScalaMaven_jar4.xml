@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ScalaMaven:jar4">
+    <output-path>$PROJECT_DIR$/out/artifacts/ScalaMaven_jar4</output-path>
+    <root id="archive" name="ScalaMaven.jar">
+      <element id="module-output" name="ScalaMaven" />
+    </root>
+  </artifact>
+</component>
