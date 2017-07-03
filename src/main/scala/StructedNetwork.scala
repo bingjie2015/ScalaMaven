@@ -8,7 +8,7 @@ object StructedNetwork {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder().
-      master("local")
+      master("local[2]")
       .appName("StructuredNetworkWordCount")
       .getOrCreate()
     val rootLogger = Logger.getRootLogger()
@@ -17,7 +17,7 @@ object StructedNetwork {
     val lines = spark.readStream
       .format("socket")
       .option("host", "localhost")
-      .option("port", 9994)
+      .option("port", 9999)
       .load()
     // line 代表DataFrame 无限接受 的表  每一行column名 是 "value"  row 是读取的数据
     // Split the lines into words

@@ -44,7 +44,7 @@ object EstimatorTransformerParamExample {
     println("LogisticRegression parameters:\n" + lr.explainParams() + "\n")
 
     // We may set parameters using setter methods.
-    lr.setMaxIter(10)
+    lr.setMaxIter(100)
       .setRegParam(0.01)
 
     // Learn a LogisticRegression model. This uses the parameters stored in lr.
@@ -88,7 +88,7 @@ object EstimatorTransformerParamExample {
     model2.transform(test)
       .select("features", "label", "myProbability", "prediction")
       .collect()
-      .foreach { case Row(features: Vector, label: Double, pr: Vector, prediction: Double) =>
+      .foreach {case  Row(features: Vector, label: Double, pr: Vector, prediction: Double) =>
         println(s"($features,$label) -> prob=$pr, prediction=$prediction")
       }
 
@@ -114,7 +114,7 @@ object EstimatorTransformerParamExample {
       .setInputCol(tokenizer.getOutputCol)
       .setOutputCol("features")
     val lr1 = new LogisticRegression()
-      .setMaxIter(10)
+      .setMaxIter(100)
       .setRegParam(0.01)
     val pipeline = new Pipeline()
       .setStages(Array(tokenizer, hashingTF, lr1))
