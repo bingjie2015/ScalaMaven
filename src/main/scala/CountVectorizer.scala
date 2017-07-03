@@ -7,6 +7,8 @@ object CountVectorizer {
   def main(args: Array[String]): Unit = {
 
   }
+
+
   val df = spark.spark.createDataFrame(Seq(
     (0, Array("a", "b", "c","D","a","a")),
     (1, Array("a", "b", "D", "b", "a","f"))
